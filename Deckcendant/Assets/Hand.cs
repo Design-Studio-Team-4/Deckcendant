@@ -7,7 +7,7 @@ The Hand represents the cards that the player can choose from in the current tur
 Due to it being the primary interface a lot of care needs to be put into the tiny details of how the hand works. 
 
 TODO:
-- Divide DrawCrds method into a method that TAKES a GIVEN number of cards from a given pile to the card array(hand), a method that GIVES a GIVEN number of cards to a chosen pile(passes the data on and destroys object), and 
+- Divide Drawhand method into a method that takes in a GIVEN number of cards from a given pile to the card array(hand), a method that GIVES out a GIVEN number of cards to a chosen pile(passes the data on and destroys object), and 
   a method that displays (instanciates) the current hand so that it places the hand nicely, accounting for the amount of cards there are and the alotted space for the hand to be displayed in.  
 - Create a method which takes checks for which card the mouse is over and brings it into full veiw and displays the discription.
 - Create a method that selects a card and targets an object (friend or foe); 
@@ -15,13 +15,13 @@ TODO:
 */
 public class Hand : MonoBehaviour
 {
-    
+
     public int maxCrdsInHand = 10;
-  
+
     public GameObject[] hand;
     Vector3 new_pos;
- 
-   
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +31,15 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    public void MoveCardsToHand(int numCrds, GameObject[] crds, GameObject sender)
+    {
+
+    }
+    public void MoveCardsFromHand(int numCrds, GameObject[] crds, GameObject destination)
+    {
+
     }
     void DrawHand(int numCrds)
     {
