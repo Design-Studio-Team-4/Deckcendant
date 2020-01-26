@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5572590839597242852}
   - component: {fileID: 5572590839597242855}
   - component: {fileID: 5572590839597242854}
-  - component: {fileID: 5572590839597242850}
+  - component: {fileID: 7774789959145610620}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -68,6 +68,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -94,7 +95,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5572590839597242850
+--- !u!114 &7774789959145610620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,7 +104,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5572590839597242841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c5ccab072b0ba47aff5b5af0f2920d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7da8c1e2b5ca01d4bbdaef54c3753909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cardName: A Card
@@ -168,6 +169,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
