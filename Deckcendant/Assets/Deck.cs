@@ -9,17 +9,13 @@ using UnityEngine;
  TODO:
  Make a representation of a list of cards(I believe an array may actually be better than a stack in this case, but I may be wrong).
  Make methods to add cards, remove cards, get the size of the deck, and return the cards in the deck.
+
  */
 
 public class Deck : MonoBehaviour
 {
 
-    public struct deck
-    {
-        public Crd[] crds;
-        public Crd topCrd;
-        public Crd btmCrd;
-    }
+    public List<GameObject> Crds;
     public bool defaultDeck;
     public Hand hand;
     private int currentCrd;
