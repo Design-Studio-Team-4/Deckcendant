@@ -52,14 +52,14 @@ public class BattleHandler : MonoBehaviour
     {
         Vector3 pos;
        
-        if (isFriendly)
+      /*  if (isFriendly)
         {
             pos = new Vector3(-5.0f, 0.0f, 0.0f);
 
         } else
         {
             pos = new Vector3(+5.0f, 0.0f, 0.0f);
-        }
-        Instantiate(combatant, pos, combatant.transform.rotation);
+        }*/
+        Instantiate(combatant, combatant.position, combatant.transform.rotation);
     }
 }

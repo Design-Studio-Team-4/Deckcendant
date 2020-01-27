@@ -16,12 +16,22 @@ TODO MUCH LATER:
 */
 public class DrawPile : MonoBehaviour
 {
+    public List<GameObject> DrwPile;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
+    public void Addto(List<GameObject> crds)
+    {
+        DrwPile.AddRange(crds);
 
+    }
+    public void TakeFrom(List<GameObject> crds)
+    {
+
+    }
     // Update is called once per frame
     void Update()
     {

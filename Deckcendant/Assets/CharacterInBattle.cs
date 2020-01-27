@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,5 +15,10 @@ public class CharacterInBattle : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Attack(CharacterInBattle TargetCharacterInBattle, Action OnAttackCompete)
+    {
+
     }
 }
