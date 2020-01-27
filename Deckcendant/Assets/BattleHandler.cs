@@ -8,6 +8,15 @@ public class BattleHandler : MonoBehaviour
     [SerializeField] private Transform enemy;
 
     // Start is called before the first frame update
+    private static BattleHandler instance;
+    public static BattleHandler GetInstance()
+    {
+        return instance;
+    }
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         SpawnCombatant(true, player);
@@ -17,7 +26,10 @@ public class BattleHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+        }
     }
     private void SpawnCombatant(bool isFriendly, Transform combatant)
     {
