@@ -28,9 +28,11 @@ public class DrawPile : MonoBehaviour
         DrwPile.AddRange(crds);
 
     }
-    public void TakeFrom(List<GameObject> crds)
+    public List<GameObject> TakeFrom(int numCrds)
     {
+       // List<GameObject> crdsToTake = DrwPile.;
 
+        //return 
     }
     // Update is called once per frame
     void Update()
