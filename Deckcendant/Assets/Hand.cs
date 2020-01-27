@@ -8,14 +8,15 @@ public class Hand : MonoBehaviour
 
     public int maxCrdsInHand = 10;
 
-    public GameObject[] hand;
+    public List <GameObject> HandPile;
     Vector3 new_pos;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        DrawHand(hand.Length);
+        // DrawHand(hand.Length);
+        DisplayHand(HandPile.Count);
     }
 
     // Update is called once per frame
@@ -23,15 +24,22 @@ public class Hand : MonoBehaviour
     {
 
     }
-    public void MoveCardsToHand(int numCrds, GameObject[] crds, GameObject sender)
-    {
-         
+    public void Addto( List<GameObject> crds)
+    { 
+        //TODO: Make it so that it only adds what can fit into the hand. 
+            HandPile.AddRange(crds);
+
+       
     }
-    public void MoveCardsFromHand(int numCrds, GameObject[] crds, GameObject destination)
+   /* public void MoveFrom(int numCrds, List <GameObject> crds, GameObject destination)
+    {
+         destination.GetComponent<>
+    }*/
+    public void RemoveFrom()
     {
 
     }
-    void DrawHand(int numCrds)
+   public void DisplayHand(int numCrds)
     {
         float card_xseperation = 0.2f;
         float x = gameObject.transform.position.x;
@@ -48,7 +56,7 @@ public class Hand : MonoBehaviour
             if (i == 0)
             {
                 Debug.Log("entered if case");
-                Instantiate(hand[i], gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
+                Instantiate(HandPile[i], gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
             }
             else
             {
@@ -57,9 +65,9 @@ public class Hand : MonoBehaviour
                 x = (x + card_xseperation);
                 z = z + 0.1f;
                 new_pos = new Vector3(x, y, z);
-                Instantiate(hand[i], new_pos, gameObject.transform.rotation, gameObject.transform);
+                Instantiate(HandPile[i], new_pos, gameObject.transform.rotation, gameObject.transform);
 
-                Debug.Log(hand[i - 1].transform.position.x);
+                //Debug.Log(hand[i - 1].transform.position.x);
 
 
 
