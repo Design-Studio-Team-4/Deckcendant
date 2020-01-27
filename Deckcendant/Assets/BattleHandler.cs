@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class BattleHandler : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private Transform enemy;
+    [SerializeField] private GameObject playerHolder;
+    [SerializeField] private GameObject enemyHolder;
 
-    
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject enemy; 
+
+   
     private static BattleHandler instance;
     private State state;
 
@@ -20,6 +23,9 @@ public class BattleHandler : MonoBehaviour
     {
        WaitingForPlayer,
        Busy,
+       StartOfTurn,
+       EndOfTurn,
+       
     }
 
     private void Awake()
@@ -29,8 +35,8 @@ public class BattleHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnCombatant(true, player);
-        SpawnCombatant(false, enemy);
+        SpawnCombatant(true, player,playerHolder);
+        SpawnCombatant(false, enemy, enemyHolder);
 
         state = State.WaitingForPlayer;
     }
@@ -40,17 +46,24 @@ public class BattleHandler : MonoBehaviour
     {
         if (state == State.WaitingForPlayer)
         {
+            
             if (Input.GetKeyDown(KeyCode.Space))
                  {
                     state = State.Busy;
-                    
+                    Debug.Log("State is busy;");
                  }
+        }
+        if (state == State.Busy)
+        {
+            
+            state = State.WaitingForPlayer;
+            Debug.Log("State is waiting for players");
         }
      
     }
-    private void SpawnCombatant(bool isFriendly, Transform combatant)
+    private void SpawnCombatant(bool isFriendly, GameObject combatant, GameObject holder)
     {
-        Vector3 pos;
+        
        
       /*  if (isFriendly)
         {
@@ -60,6 +73,6 @@ public class BattleHandler : MonoBehaviour
         {
             pos = new Vector3(+5.0f, 0.0f, 0.0f);
         }*/
-        Instantiate(combatant, combatant.position, combatant.transform.rotation);
+        Instantiate(combatant, holder.transform.position, combatant.transform.rotation);
     }
 }
