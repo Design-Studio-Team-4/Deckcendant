@@ -26,13 +26,14 @@ TODO MUCH LATER:
 public class Deck : MonoBehaviour
 {
 
-    public List<GameObject> Crds;
+    public List<GameObject> Cards;
     public bool defaultDeck;
     public Hand hand;
     private int currentCrd;
     private const int MAX_NUM_CRDS = 50;
-    private Random randomNumber;
-    
+
+    private static System.Random rand = new Random();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,15 +46,44 @@ public class Deck : MonoBehaviour
     {
         
     }
-    public void shuffle()
-    {
 
-    }
-    public void Addto(List<GameObject> crds)
+    public void Shuffle()
     {
-        Crds.AddRange(crds);
-
+        for(int i = Cards.Count; i > 1; i--)
+        {
+            int j = rand.Next(i + 1);
+            GameObject c = Cards[j];
+            Cards[j] = Cards[i];
+            Cards[i] = c;
+        }
     }
+
+    public void AddTo(List<GameObject> cards)
+    {
+        foreach (GameObject c in cards)
+        {
+            Cards.Add(c);
+        }
+        
+    }
+
+    public void RemoveFrom(List<GameObject> cards)
+    {
+        foreach (GameObject c in cards)
+        {
+            Cards.Remove(c);
+
+            /* IGNORE THIS 
+            int index = IndexOf(c);
+            for (int i = index; i < cards.Count() - 1; i++)
+            {
+                cards[i] = cards[i + 1];
+            }
+            cards[cards.Count()] = null;
+            */
+        }
+    }
+
     // public List<GameObject> TakeFrom(int numCrds)
     //  {
     // List<GameObject> crdsToTake = DrwPile.;
