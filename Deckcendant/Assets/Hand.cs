@@ -90,7 +90,7 @@ public class Hand : MonoBehaviour
     }
 
     
-    public void SearchFocus()
+    //public void SearchFocus()
     public int getFocus()
     {
         return focus;
