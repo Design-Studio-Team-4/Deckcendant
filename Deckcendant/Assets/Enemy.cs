@@ -11,15 +11,6 @@ public class Enemy : MonoBehaviour
     int block;
     int cooldown;
     
-<<<<<<< HEAD
-   // private static System.Random rand = new Random();
-
-    //public void TakeDamage(Card c) { health -= c.efPower; }
-
-    public void ChooseAttack()
-    {
-       // int i = rand.Next(/* NUMBER OF ATTACKS*/);
-=======
     private static System.Random rand = new Random();
     /*
     public void TakeDamage(Card c)
@@ -29,7 +20,6 @@ public class Enemy : MonoBehaviour
     }
     */
     
->>>>>>> 6618ac5e3555cfccf154da9b274021d7765494a7
 
     public void ChooseMove()
     {
