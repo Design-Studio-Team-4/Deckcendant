@@ -12,6 +12,8 @@ public class Crd : MonoBehaviour
     public GameObject CrdText;
     bool isFocus;
     public GameObject hand;
+
+
     void Start()
     {
         isFocus = false;

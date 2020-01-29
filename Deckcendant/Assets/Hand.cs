@@ -80,6 +80,7 @@ public class Hand : MonoBehaviour
     {
         return focus;
     }
+    /*
     public void SearchFocus()
     {
         if(){
@@ -89,7 +90,7 @@ public class Hand : MonoBehaviour
 
          } 
     }
-        
+       */ 
         
     public bool checkFocus()
     {
