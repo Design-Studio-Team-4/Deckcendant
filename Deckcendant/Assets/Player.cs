@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int d) { health -= d; }
 
-    public void PlayCard(Card c) { energy -= card.cost; }
+   // public void PlayCard(Card c) { energy -= card.cost; }
 
     // Start is called before the first frame update
     void Start()

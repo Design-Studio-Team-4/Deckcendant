@@ -8,7 +8,12 @@ public class Hand : MonoBehaviour
 
     public int maxCrdsInHand = 10;
     int focus = -1; //-1 means no card is in focus otherwise 0 and up are the index of the card in focus
-
+    public enum State
+    {
+        busy,
+        waitingForPlayer,
+    }
+    State state;
     public List<GameObject> HandPile;
     Vector3 new_pos;
     
@@ -24,7 +29,7 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     public void Addto(List<GameObject> crds)
     {
@@ -77,20 +82,37 @@ public class Hand : MonoBehaviour
         }
     }
 
-    private void focusOnCard(int numcrds)
+    public void focusOnCard(int instance)
     {
-        for(int i = 0; i < numcrds; i++)
+        //Debug.Log("Passed in int = " + numcrds);
+        Debug.Log("focusOnCard function starting");
+        for(int i = 0; i < HandPile.Count; i++)
         {
-            Crd crd = HandPile[i].GetComponent<Crd>();
-            if (crd.checkFocus())
+            Debug.Log(instance);
+            Debug.Log(HandPile[i].GetInstanceID());
+            if (instance == HandPile[i].GetInstanceID())
             {
                 focus = i;
+                Debug.Log("FoundFocus on " + i);
             }
+            /*bool iFocus = HandPile[i].GetComponent<Crd>().checkFocus();
+            Debug.Log("focus for"+ i + " = "+ iFocus)
+            if (iFocus)
+            {
+                focus = i;
+                Debug.Log("Current Focus is " + focus);
+            }*/
         }
     }
-    public int getFocus()
+    public void RemoveFocus()
     {
-        return focus;
+        
+        if (focus != -1)
+        {   
+            Debug.Log("Removing focus from" + focus);
+            HandPile[focus].GetComponent<Crd>().RemoveFocus();
+        }
+        focus = -1;
     }
    
         

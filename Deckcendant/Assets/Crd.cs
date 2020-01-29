@@ -10,12 +10,17 @@ public class Crd : MonoBehaviour
     public int efPower = 5;
     public int cost = 1;
     public GameObject CrdText;
-    bool isFocus;
-
+    public enum CardState
+    {
+        isFocus,
+        notFocus,
+    }
+    CardState state;
     void Start()
     {
-        isFocus = false;
+        state = CardState.notFocus;
         CrdText.GetComponent<TextMesh>().text = cardName;
+         
 
     }
 
@@ -39,18 +44,24 @@ public class Crd : MonoBehaviour
         return "Deal " + efPower + " Damage";
 
     }
-    public bool checkFocus()
-    {
-        BoxCollider collider = gameObject.GetComponent<BoxCollider>();
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (collider.Raycast(ray, out hit, 100.0f))
-        {
-            //TODO remove focus from another object
-            isFocus = true;
+    public void OnMouseDown()
+    {  // int numcrds;
+        //Removes focus from whatever card was focused on before
+       // GameObject.FindGameObjectWithTag("PlayerHand").GetComponent<Hand>().RemoveFocus();// Seems to actually work to remove the bool;
+        //Debug.Log("RemovedFocus");
+        //sets the internal focus to true
 
-        }
-        return isFocus;
+        state = CardState.isFocus;
+       // Debug.Log("Internal Focus Added" + isFocus);
+        //numcrds = GameObject.FindGameObjectWithTag("PlayerHand").GetComponent<Hand>().HandPile.Count;
+        GameObject.FindGameObjectWithTag("PlayerHand").GetComponent<Hand>().focusOnCard(this.GetInstanceID());
+
     }
+    public void RemoveFocus()
+    {
+        state = CardState.notFocus;
+
+    }
+    
 }
     
