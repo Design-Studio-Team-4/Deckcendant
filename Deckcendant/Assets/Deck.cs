@@ -32,7 +32,7 @@ public class Deck : MonoBehaviour
     private int currentCrd;
     private const int MAX_NUM_CRDS = 50;
 
-    private static System.Random rand = new Random();
+    //private static System.Random rand = new Random(); !!!! Cannot implicitly covert Unity.Engine.Random to System.Random
 
     // Start is called before the first frame update
     void Start()
@@ -51,10 +51,10 @@ public class Deck : MonoBehaviour
     {
         for(int i = Cards.Count; i > 1; i--)
         {
-            int j = rand.Next(i + 1);
-            GameObject c = Cards[j];
-            Cards[j] = Cards[i];
-            Cards[i] = c;
+            //int j = rand.Next(i + 1);
+           // GameObject c = Cards[j];
+           // Cards[j] = Cards[i];
+           // Cards[i] = c;
         }
     }
 

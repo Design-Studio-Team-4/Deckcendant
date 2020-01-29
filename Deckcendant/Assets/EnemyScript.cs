@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +12,14 @@ public class Enemy : MonoBehaviour
     int health;
     int block;
     int cooldown;
-
     private static System.Random rand = new Random();
+
+    //public void TakeDamage(Card c) { health -= c.efPower; }
+
+    public void ChooseAttack()
+    {
+        int i = rand.Next(/* NUMBER OF ATTACKS*/);
+    }
     /*
     public void TakeDamage(Card c)
     {
@@ -20,6 +27,8 @@ public class Enemy : MonoBehaviour
         else block -= c.efPower;
     }
     */
+
+    
 
     public void ChooseMove()
     {
