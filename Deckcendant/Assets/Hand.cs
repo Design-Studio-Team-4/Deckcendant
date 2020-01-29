@@ -15,15 +15,35 @@ public class Hand : MonoBehaviour
     }
     State state;
     public List<GameObject> HandPile;
+    public GameObject CardPrefab;
     Vector3 new_pos;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        float card_xseperation = 0.2f;
+        float x = gameObject.transform.position.x;
+        float y = gameObject.transform.position.y;
+        float z = gameObject.transform.position.z;
         focus = -1;
-        // DrawHand(hand.Length);
+        
         DisplayHand(HandPile.Count);
+        for(int i = 0; i < HandPile.Count; i++)
+        {
+            if ( i == 0)
+            {
+                HandPile[i] = Instantiate(CardPrefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
+            } else
+            {
+                Debug.Log("entered else case");
+                Debug.Log(card_xseperation);
+                x = (x + card_xseperation);
+                z = z + 0.1f;
+                new_pos = new Vector3(x, y, z);
+                HandPile[i] = Instantiate(CardPrefab, new_pos, gameObject.transform.rotation, gameObject.transform);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -38,10 +58,7 @@ public class Hand : MonoBehaviour
        
 
     }
-    /* public void MoveFrom(int numCrds, List <GameObject> crds, GameObject destination)
-     {
-          destination.GetComponent<>
-     }*/
+
     public void RemoveFrom()
     {
 
@@ -63,7 +80,9 @@ public class Hand : MonoBehaviour
             if (i == 0)
             {
                 Debug.Log("entered if case");
-                Instantiate(HandPile[i], gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
+                //Instantiate(HandPile[i], gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
+              //  HandPile[i].SetActive(true);
+                Debug.Log(HandPile[i].activeInHierarchy);
             }
             else
             {
@@ -72,8 +91,10 @@ public class Hand : MonoBehaviour
                 x = (x + card_xseperation);
                 z = z + 0.1f;
                 new_pos = new Vector3(x, y, z);
-                Instantiate(HandPile[i], new_pos, gameObject.transform.rotation, gameObject.transform);
-
+                //Instantiate(HandPile[i], new_pos, gameObject.transform.rotation, gameObject.transform);
+                //HandPile[i].SetActive(true);
+               
+                Debug.Log(HandPile[i].activeInHierarchy);
                 //Debug.Log(hand[i - 1].transform.position.x);
 
 
@@ -116,7 +137,8 @@ public class Hand : MonoBehaviour
             Debug.Log("Removing focus from" + focus);
             HandPile[focus].GetComponent<Crd>().RemoveFocus();
         }
-        focus = -1;
+        
+        return focus;
     }
        
         
