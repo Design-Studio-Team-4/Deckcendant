@@ -32,7 +32,7 @@ public class Deck : MonoBehaviour
     private int currentCrd;
     private const int MAX_NUM_CRDS = 50;
 
-    private static System.Random rand = new System.Random();
+    private static System.Random rand = new Random();
 
     // Start is called before the first frame update
     void Start()
