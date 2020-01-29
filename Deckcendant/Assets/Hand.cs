@@ -104,14 +104,11 @@ public class Hand : MonoBehaviour
             }*/
         }
     }
-<<<<<<< HEAD
-    public void RemoveFocus()
-=======
+    //public void RemoveFocus()
 
     
     //public void SearchFocus()
     public int getFocus()
->>>>>>> 6618ac5e3555cfccf154da9b274021d7765494a7
     {
         
         if (focus != -1)

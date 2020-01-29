@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     {
         int i = rand.Next(/* NUMBER OF ATTACKS*/);
     }
+    private static System.Random rand = new Random();
     /*
     public void TakeDamage(Card c)
     {
