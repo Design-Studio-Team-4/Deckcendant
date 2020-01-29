@@ -10,11 +10,11 @@ public class Crd : MonoBehaviour
     public int efPower = 5;
     public int cost = 1;
     public GameObject CrdText;
-
-
+    bool isFocus;
+    public GameObject hand;
     void Start()
     {
-
+        isFocus = false;
         CrdText.GetComponent<TextMesh>().text = cardName;
 
     }
@@ -39,5 +39,8 @@ public class Crd : MonoBehaviour
         return "Deal " + efPower + " Damage";
 
     }
-
+    public void checkFocus()
+    {
+        int handfocus = hand.GetComponent<getFocus>();  
+    }
 }
