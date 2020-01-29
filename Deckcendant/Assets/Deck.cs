@@ -38,10 +38,22 @@ public class Deck : MonoBehaviour
     {
 
     }
-  //  public Crd DrawCrd()
-   // {
-   
-      
-     // return crdToDrw;
-   // }
+    public void Addto(List<GameObject> crds)
+    {
+        Crds.AddRange(crds);
+
+    }
+    // public List<GameObject> TakeFrom(int numCrds)
+    //  {
+    // List<GameObject> crdsToTake = DrwPile.;
+
+    //return 
+    //   }
+
+    //  public Crd DrawCrd()
+    // {
+
+
+    // return crdToDrw;
+    // }
 }
