@@ -10,12 +10,18 @@ public class Crd : MonoBehaviour
     public int efPower = 5;
     public int cost = 1;
     public GameObject CrdText;
+<<<<<<< HEAD
     public enum CardState
     {
         isFocus,
         notFocus,
     }
     CardState state;
+=======
+    bool isFocus;
+    public GameObject hand;
+
+>>>>>>> 6618ac5e3555cfccf154da9b274021d7765494a7
     void Start()
     {
         state = CardState.notFocus;

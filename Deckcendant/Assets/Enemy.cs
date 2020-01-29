@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    string name;
+    int type;
     int health;
+    int block;
     int cooldown;
     
+<<<<<<< HEAD
    // private static System.Random rand = new Random();
 
     //public void TakeDamage(Card c) { health -= c.efPower; }
@@ -15,7 +19,26 @@ public class Enemy : MonoBehaviour
     public void ChooseAttack()
     {
        // int i = rand.Next(/* NUMBER OF ATTACKS*/);
+=======
+    private static System.Random rand = new Random();
+    /*
+    public void TakeDamage(Card c)
+    {
+        if (block - c.efPower <= 0) health -= block + c.efPower;
+        else block -= c.efPower;
+    }
+    */
+    
+>>>>>>> 6618ac5e3555cfccf154da9b274021d7765494a7
 
+    public void ChooseMove()
+    {
+        int i = rand.Next(/* NUMBER OF MOVES*/);
+        /* moves should have:
+            -a string for the name
+            -an integer to identify what it is
+            -effect magnitude (how much damage, 
+        */
     }
 
 
