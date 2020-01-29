@@ -11,7 +11,7 @@ public class Crd : MonoBehaviour
     public int cost = 1;
     public GameObject CrdText;
     bool isFocus;
-    public GameObject hand;
+
     void Start()
     {
         isFocus = false;
@@ -39,8 +39,18 @@ public class Crd : MonoBehaviour
         return "Deal " + efPower + " Damage";
 
     }
-    public void checkFocus()
+    public bool checkFocus()
     {
-        int handfocus = hand.GetComponent<getFocus>();  
+        BoxCollider collider = gameObject.GetComponent<BoxCollider>();
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (collider.Raycast(ray, out hit, 100.0f))
+        {
+            //TODO remove focus from another object
+            isFocus = true;
+
+        }
+        return isFocus;
     }
 }
+    
