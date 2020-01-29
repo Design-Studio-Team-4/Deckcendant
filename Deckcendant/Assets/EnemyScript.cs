@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public EnemyMoves emScript;
+
     string name;
     int type;
     int health;
     int block;
     int cooldown;
-    
+
     private static System.Random rand = new Random();
     /*
     public void TakeDamage(Card c)
@@ -18,7 +20,6 @@ public class Enemy : MonoBehaviour
         else block -= c.efPower;
     }
     */
-    
 
     public void ChooseMove()
     {
@@ -35,12 +36,12 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        emScript.YEET();
     }
 }

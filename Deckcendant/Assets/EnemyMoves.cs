@@ -6,7 +6,7 @@ public class EnemyMoves : MonoBehaviour
 {
     public class Move
     {
-        string name;
+        public string name;
         int type;
         int power;
         int cost;
@@ -24,5 +24,10 @@ public class EnemyMoves : MonoBehaviour
     Move punch = new Move("Punch", 0, 3, 3);
     Move defend = new Move("Block", 1, 1, 1);
     Move heal = new Move("Heal", 2, 2, 2);
+
+    public void YEET()
+    {
+        Debug.log("YEET");
+    }
 
 }
