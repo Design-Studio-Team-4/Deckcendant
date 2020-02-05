@@ -39,8 +39,8 @@ public class EnemyScript : MonoBehaviour
 
         public void TakeDamage(Crd c)
         {
-            if (block - c.efPower <= 0) currentHealth -= block + c.efPower;
-            else block -= c.efPower;
+            if (block - c.power <= 0) currentHealth -= block + c.power;
+            else block -= c.power;
         }
 
         public void ChooseMove()
@@ -94,8 +94,8 @@ public class EnemyScript : MonoBehaviour
 
     public void TakeDamage(Crd c)
     {
-        if (block - c.efPower <= 0) currentHealth -= block + c.efPower;
-        else block -= c.efPower;
+        if (block - c.power <= 0) currentHealth -= block + c.power;
+        else block -= c.power;
     }
 
     public void ChooseMove()

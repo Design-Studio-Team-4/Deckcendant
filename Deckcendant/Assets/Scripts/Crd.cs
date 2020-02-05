@@ -50,7 +50,6 @@ public class Crd : MonoBehaviour
                 return "Gain " + power + " Block";
             case 2:
                 return "Restore " + power + " HP";
-
         }
         return "Deal " + power + " Damage";
 
