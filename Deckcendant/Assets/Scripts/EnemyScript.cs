@@ -75,9 +75,9 @@ public class EnemyScript : MonoBehaviour
 
     public Enemy[] enemyList = new Enemy[]
     {
-        //        Name          Type    Health
+        //         Name         Type    Health
         new Enemy("JohnEgg",    50,     100000),
-        new Enemy("LIPS",       1,      20)
+        new Enemy("Lips",       1,      20)
     };
 
     /*
