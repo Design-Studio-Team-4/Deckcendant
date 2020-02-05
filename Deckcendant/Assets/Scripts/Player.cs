@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    int health;
+    int currentHealth;
+    int maxHealth;
     int energy;
     int block;
 
@@ -12,8 +13,19 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (block - damage <= 0) health -= block + damage;
+        if (block - damage <= 0) currentHealth -= block + damage;
         else block -= damage;
+    }
+
+    public void GainBlock(int amount)
+    {
+        block += amount;
+    }
+
+    public void Heal(int amount)
+    {
+        if (currentHealth + amount > maxHealth) currentHealth = maxHealth;
+        else currentHealth += amount;
     }
 
     public void PlayCard(Crd c) { energy -= c.cost; }
