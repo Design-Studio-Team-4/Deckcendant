@@ -24,7 +24,11 @@ public class Crd : MonoBehaviour
         startpos = gameObject.transform.position;
 
     }
+  //  public bool isCardTheFocus()
+   // {
 
+   //     return true;
+ //   }
     void Update()
     {
       
@@ -81,11 +85,16 @@ public class Crd : MonoBehaviour
 
       
         GameObject.FindGameObjectWithTag("PlayerHand").GetComponent<Hand>().getFocus();// Seems to actually work to remove the bool;
-       
+        
         GameObject.FindGameObjectWithTag("PlayerHand").GetComponent<Hand>().focusOnCard(gameObject);
         state = CardState.isFocus;
         Vector3 newpos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z - 0.2f);
         gameObject.transform.position = newpos;
+        } 
+        else if(state == CardState.isFocus) {
+
+            GameObject.FindGameObjectWithTag("PlayerHand").GetComponent<Hand>().useCard(gameObject);
+
         }
     }
     public void RemoveFocus()
