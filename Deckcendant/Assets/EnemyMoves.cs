@@ -20,7 +20,7 @@ public class EnemyMoves : MonoBehaviour
         }
 
     }
-
+    
     public Move punch = new Move("Punch", 3, 0, 3);
     public Move defend = new Move("Block", 1, 1, 1);
     public Move heal = new Move("Heal", 2, 2, 2);
@@ -34,6 +34,7 @@ public class EnemyMoves : MonoBehaviour
     public void YEET()
     {
         Debug.Log("YEET");
+        
     }
 
 };
