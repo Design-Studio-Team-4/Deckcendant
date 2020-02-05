@@ -25,10 +25,18 @@ TODO MUCH LATER:
 
 public class Deck : MonoBehaviour
 {
+    public enum type
+    {
+        deck,
+        drawPile,
+        discardPile,
+        graveyard,
+    }
+    public type Type;
     public List<GameObject> temp;
     public List<GameObject> Cards;
     public bool defaultDeck;
- 
+    
     public Hand hand;
     private int currentCrd;
     private const int MAX_NUM_CRDS = 50;
@@ -37,8 +45,11 @@ public class Deck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        MakeCards();
+      //  if (Type == type.deck)
+      //  {
+            MakeCards();
+       // }
+        
 	}
 
     // Update is called once per frame
@@ -49,7 +60,7 @@ public class Deck : MonoBehaviour
 
     public void Shuffle()
     {
-        for(int i = Cards.Count; i > 1; i--)
+        for(int i = Cards.Count-1; i > 1; i--)
         {
            int j = rand.Next(i + 1);
            GameObject c = Cards[j];
@@ -85,8 +96,16 @@ public class Deck : MonoBehaviour
     }
     public GameObject getTopCard()
     {
-       
+       if (Type == type.drawPile)
+        {
+           Shuffle();
         return Cards[Cards.Count-1];
+        }
+       else
+        {
+            return Cards[Cards.Count - 1];
+        }
+        
     }
 
     public void MakeCards()
