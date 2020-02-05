@@ -15,9 +15,11 @@ public class Hand : MonoBehaviour
     }
     State state;
     public List<GameObject> HandPile;
-    public GameObject CardPrefab;
+    //public GameObject CardPrefab;
+    public GameObject DrawPile;
+    GameObject cardToDraw;
     Vector3 new_pos;
-    
+  
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +30,15 @@ public class Hand : MonoBehaviour
         float z = gameObject.transform.position.z;
         focus = -1;
         
+
+
         DisplayHand(HandPile.Count);
         for(int i = 0; i < HandPile.Count; i++)
         {
             if ( i == 0)
             {
-                HandPile[i] = Instantiate(CardPrefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
+                //HandPile[i] = Instantiate(CardPrefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
+                //HandPile[i] = CardPrefab;
             } else
             {
                 Debug.Log("entered else case");
@@ -41,7 +46,7 @@ public class Hand : MonoBehaviour
                 x = (x + card_xseperation);
                 z = z + 0.1f;
                 new_pos = new Vector3(x, y, z);
-                HandPile[i] = Instantiate(CardPrefab, new_pos, gameObject.transform.rotation, gameObject.transform);
+                HandPile[i].transform.position = new_pos;
             }
         }
     }
@@ -49,12 +54,25 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            drawCard();
+            
+        }
     }
-    public void Addto(List<GameObject> crds)
+    public void drawCard()
+    {
+        cardToDraw = DrawPile.GetComponent<Deck>().getTopCard();
+        Addto(cardToDraw);
+        List<GameObject> temp = new List<GameObject> { cardToDraw };
+        DrawPile.GetComponent<Deck>().RemoveFrom(temp);
+        HandPile[HandPile.Count-1].SetActive(true);
+        HandPile[HandPile.Count - 1].GetComponent<MeshRenderer>().enabled = true;
+    }
+    public void Addto(GameObject crd)
     {
         //TODO: Make it so that it only adds what can fit into the hand. 
-        HandPile.AddRange(crds);
+        HandPile.Add(crd);
        
 
     }
@@ -81,8 +99,11 @@ public class Hand : MonoBehaviour
             {
                 Debug.Log("entered if case");
                 //Instantiate(HandPile[i], gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
-              //  HandPile[i].SetActive(true);
+                
                 Debug.Log(HandPile[i].activeInHierarchy);
+                HandPile[i].transform.position = new_pos;
+                HandPile[i].SetActive(true);
+                HandPile[i].GetComponent<Crd>().changeStandardPos(new_pos);
             }
             else
             {
@@ -91,9 +112,9 @@ public class Hand : MonoBehaviour
                 x = (x + card_xseperation);
                 z = z + 0.1f;
                 new_pos = new Vector3(x, y, z);
-                //Instantiate(HandPile[i], new_pos, gameObject.transform.rotation, gameObject.transform);
-                //HandPile[i].SetActive(true);
-               
+                HandPile[i].transform.position = new_pos;
+                HandPile[i].SetActive(true);
+                HandPile[i].GetComponent<Crd>().changeStandardPos(new_pos);
                 Debug.Log(HandPile[i].activeInHierarchy);
                 //Debug.Log(hand[i - 1].transform.position.x);
 
@@ -136,6 +157,7 @@ public class Hand : MonoBehaviour
         {   
             Debug.Log("Removing focus from" + focus);
             HandPile[focus].GetComponent<Crd>().RemoveFocus();
+            focus = -1;
         }
         
         return focus;
