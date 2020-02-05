@@ -36,10 +36,12 @@ public class EnemyMoves : MonoBehaviour
 
     }
 
-    public Move[] moveList = new Move[] {
-        new Move("Punch", 3, 0, 3),
-        new Move("Block", 1, 1, 1),
-        new Move("Heal", 2, 2, 2)
+    public Move[] moveList = new Move[] 
+    {
+        //       Name       Type    Power   Cost
+        new Move("Punch",   3,      0,      3),
+        new Move("Block",   1,      1,      1),
+        new Move("Heal",    2,      2,      2)
     };
 
     /*
