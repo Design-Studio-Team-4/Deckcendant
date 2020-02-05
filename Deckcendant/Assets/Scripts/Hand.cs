@@ -19,36 +19,19 @@ public class Hand : MonoBehaviour
     public GameObject DrawPile;
     GameObject cardToDraw;
     Vector3 new_pos;
-  
+  float card_xseperation = 0.2f;
 
     // Start is called before the first frame update
     void Start()
     {
-        float card_xseperation = 0.2f;
-        float x = gameObject.transform.position.x;
-        float y = gameObject.transform.position.y;
-        float z = gameObject.transform.position.z;
+        
+       
         focus = -1;
         
 
 
         DisplayHand(HandPile.Count);
-        for(int i = 0; i < HandPile.Count; i++)
-        {
-            if ( i == 0)
-            {
-                //HandPile[i] = Instantiate(CardPrefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
-                //HandPile[i] = CardPrefab;
-            } else
-            {
-                Debug.Log("entered else case");
-                Debug.Log(card_xseperation);
-                x = (x + card_xseperation);
-                z = z + 0.1f;
-                new_pos = new Vector3(x, y, z);
-                HandPile[i].transform.position = new_pos;
-            }
-        }
+
     }
 
     // Update is called once per frame
@@ -68,6 +51,26 @@ public class Hand : MonoBehaviour
         DrawPile.GetComponent<Deck>().RemoveFrom(temp);
         HandPile[HandPile.Count-1].SetActive(true);
         HandPile[HandPile.Count - 1].GetComponent<MeshRenderer>().enabled = true;
+        float x = gameObject.transform.position.x;
+        float y = gameObject.transform.position.y;
+        float z = gameObject.transform.position.z;
+        for (int i = 0; i < HandPile.Count; i++)
+        {
+            if (i == 0)
+            {
+                //HandPile[i] = Instantiate(CardPrefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
+                //HandPile[i] = CardPrefab;
+            }
+            else
+            {
+                Debug.Log("entered else case");
+                Debug.Log(card_xseperation);
+                x = (x + card_xseperation);
+                z = z + 0.1f;
+                new_pos = new Vector3(x, y, z);
+                HandPile[i].transform.position = new_pos;
+            }
+        }
     }
     public void Addto(GameObject crd)
     {
@@ -103,7 +106,7 @@ public class Hand : MonoBehaviour
                 Debug.Log(HandPile[i].activeInHierarchy);
                 HandPile[i].transform.position = new_pos;
                 HandPile[i].SetActive(true);
-                HandPile[i].GetComponent<Crd>().changeStandardPos(new_pos);
+                HandPile[i].GetComponent<Crd>().changeStandardPos(HandPile[i].transform.position);
             }
             else
             {
@@ -114,7 +117,7 @@ public class Hand : MonoBehaviour
                 new_pos = new Vector3(x, y, z);
                 HandPile[i].transform.position = new_pos;
                 HandPile[i].SetActive(true);
-                HandPile[i].GetComponent<Crd>().changeStandardPos(new_pos);
+                HandPile[i].GetComponent<Crd>().changeStandardPos(HandPile[i].transform.position);
                 Debug.Log(HandPile[i].activeInHierarchy);
                 //Debug.Log(hand[i - 1].transform.position.x);
 
@@ -124,15 +127,16 @@ public class Hand : MonoBehaviour
         }
     }
 
-    public void focusOnCard(int instance)
+    public void focusOnCard(GameObject instance)
     {
         //Debug.Log("Passed in int = " + numcrds);
         Debug.Log("focusOnCard function starting");
         for(int i = 0; i < HandPile.Count; i++)
         {
+
             Debug.Log(instance);
-            Debug.Log(HandPile[i].GetInstanceID());
-            if (instance == HandPile[i].GetInstanceID())
+            Debug.Log(HandPile[i]);
+            if (instance == HandPile[i])
             {
                 focus = i;
                 Debug.Log("FoundFocus on " + i);
@@ -157,7 +161,10 @@ public class Hand : MonoBehaviour
         {   
             Debug.Log("Removing focus from" + focus);
             HandPile[focus].GetComponent<Crd>().RemoveFocus();
+
+            HandPile[focus].transform.position = new Vector3(HandPile[focus].transform.position.x, HandPile[focus].transform.position.y - 1, transform.position.z + 0.2f);
             focus = -1;
+ 
         }
         
         return focus;

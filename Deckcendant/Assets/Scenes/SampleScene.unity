@@ -307,17 +307,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45a06e66168a0943adf42f178a6e8bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cards:
+  temp:
   - {fileID: 5572590839597242841, guid: 97974fd182d3d2c458e1d1ee3e1e2f1f, type: 3}
   - {fileID: 5572590839597242841, guid: 97974fd182d3d2c458e1d1ee3e1e2f1f, type: 3}
   - {fileID: 5572590839597242841, guid: 97974fd182d3d2c458e1d1ee3e1e2f1f, type: 3}
   - {fileID: 5572590839597242841, guid: 97974fd182d3d2c458e1d1ee3e1e2f1f, type: 3}
   - {fileID: 5572590839597242841, guid: 97974fd182d3d2c458e1d1ee3e1e2f1f, type: 3}
-  - {fileID: 5572590839597242841, guid: 97974fd182d3d2c458e1d1ee3e1e2f1f, type: 3}
-  - {fileID: 5572590839597242841, guid: 97974fd182d3d2c458e1d1ee3e1e2f1f, type: 3}
-  - {fileID: 5572590839597242841, guid: 97974fd182d3d2c458e1d1ee3e1e2f1f, type: 3}
-  - {fileID: 5572590839597242841, guid: 97974fd182d3d2c458e1d1ee3e1e2f1f, type: 3}
-  - {fileID: 5572590839597242841, guid: 97974fd182d3d2c458e1d1ee3e1e2f1f, type: 3}
+  Cards: []
   defaultDeck: 0
   hand: {fileID: 1076593892}
 --- !u!1 &705507993
@@ -651,8 +647,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxCrdsInHand: 10
   HandPile: []
-  CardPrefab: {fileID: 5572590839597242841, guid: 97974fd182d3d2c458e1d1ee3e1e2f1f,
-    type: 3}
   DrawPile: {fileID: 569325380}
 --- !u!1 &1306251248
 GameObject:
