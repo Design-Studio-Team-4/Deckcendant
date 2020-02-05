@@ -55,7 +55,16 @@ public class Deck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Type == type.drawPile)
+        {
+            if (Cards.Count==0)
+            {
+                List<GameObject> temp = GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().Cards;
+                AddTo(temp);
+                GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().RemoveFrom(temp);
+                Shuffle();
+            }
+        }
     }
 
     public void Shuffle()
@@ -98,7 +107,7 @@ public class Deck : MonoBehaviour
     {
        if (Type == type.drawPile)
         {
-           Shuffle();
+         //  Shuffle();
         return Cards[Cards.Count-1];
         }
        else
@@ -118,6 +127,7 @@ public class Deck : MonoBehaviour
             Cards[Cards.Count - 1].GetComponent<Crd>().changeName( "Card Number " + (Cards.Count));
         }
     }
+    
     // public List<GameObject> TakeFrom(int numCrds)
     //  {
     // List<GameObject> crdsToTake = DrwPile.;

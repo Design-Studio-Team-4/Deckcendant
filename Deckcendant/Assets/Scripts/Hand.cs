@@ -17,6 +17,7 @@ public class Hand : MonoBehaviour
     public List<GameObject> HandPile;
     //public GameObject CardPrefab;
     public GameObject DrawPile;
+    public GameObject DiscardPile;
     GameObject cardToDraw;
     Vector3 new_pos;
   float card_xseperation = 0.2f;
@@ -80,8 +81,10 @@ public class Hand : MonoBehaviour
 
     }
 
-    public void RemoveFrom()
+    public void RemoveFrom(GameObject cardToRemove)
     {
+
+            HandPile.Remove(cardToRemove);
 
     }
     public void DisplayHand(int numCrds)
@@ -126,7 +129,14 @@ public class Hand : MonoBehaviour
             }
         }
     }
-
+    public void useCard(GameObject cardToUse)
+    {
+        List<GameObject> temp = new List<GameObject> { cardToUse };
+        DiscardPile.GetComponent<Deck>().AddTo(temp);
+        getFocus();
+        RemoveFrom(cardToUse);
+        cardToUse.SetActive(false);
+    }
     public void focusOnCard(GameObject instance)
     {
         //Debug.Log("Passed in int = " + numcrds);
