@@ -30,7 +30,12 @@ public class Crd : MonoBehaviour
       
       
     }
-
+    public void changeName(string newName)
+    {
+        name = newName;
+        cardName = newName;
+        CrdText.GetComponent<TextMesh>().text = cardName;
+    }
     public string description()
     {
         switch (efType)
@@ -56,7 +61,7 @@ public class Crd : MonoBehaviour
       
         GameObject.FindGameObjectWithTag("PlayerHand").GetComponent<Hand>().getFocus();// Seems to actually work to remove the bool;
        
-        GameObject.FindGameObjectWithTag("PlayerHand").GetComponent<Hand>().focusOnCard(this.GetInstanceID());
+        GameObject.FindGameObjectWithTag("PlayerHand").GetComponent<Hand>().focusOnCard(gameObject);
         state = CardState.isFocus;
         Vector3 newpos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1, gameObject.transform.position.z - 0.2f);
         gameObject.transform.position = newpos;
@@ -65,7 +70,7 @@ public class Crd : MonoBehaviour
     public void RemoveFocus()
     {
         state = CardState.notFocus;
-        gameObject.transform.position = startpos;
+        //gameObject.transform.position = startpos;
     }
     public void changeStandardPos(Vector3 newpos)
     {

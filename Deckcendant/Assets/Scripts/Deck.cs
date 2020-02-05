@@ -96,6 +96,7 @@ public class Deck : MonoBehaviour
            GameObject card = Instantiate(c);
             card.SetActive(false);
             Cards.Add(card);
+            Cards[Cards.Count - 1].GetComponent<Crd>().changeName( "Card Number " + (Cards.Count));
         }
     }
     // public List<GameObject> TakeFrom(int numCrds)
