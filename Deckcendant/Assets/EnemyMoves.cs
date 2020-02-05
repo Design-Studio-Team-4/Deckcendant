@@ -7,11 +7,11 @@ public class EnemyMoves : MonoBehaviour
     public class Move
     {
         public string name;
-        int type;
-        int power;
-        int cost;
+        public int type;
+        public int power;
+        public int cost;
 
-        Move(string n, int t, int p, int c)
+        public Move(string n, int t, int p, int c)
         {
             name = n;
             type = t;
@@ -21,13 +21,19 @@ public class EnemyMoves : MonoBehaviour
 
     }
 
-    Move punch = new Move("Punch", 0, 3, 3);
-    Move defend = new Move("Block", 1, 1, 1);
-    Move heal = new Move("Heal", 2, 2, 2);
+    public Move punch = new Move("Punch", 3, 0, 3);
+    public Move defend = new Move("Block", 1, 1, 1);
+    public Move heal = new Move("Heal", 2, 2, 2);
+    public Move yeet = new Move("Yeet", 10, 0, 6);
+    public Move eggblast = new Move("Egg Blast", 9001, 0, 2);
+    public Move dab = new Move("Dab", 10, 2, 1);
+    public Move naynay = new Move("Nay Nay", 20, 1, 10);
+    public Move eggcite = new Move("Eggcite", 10000, 2, 6);
+
 
     public void YEET()
     {
-        Debug.log("YEET");
+        Debug.Log("YEET");
     }
 
-}
+};

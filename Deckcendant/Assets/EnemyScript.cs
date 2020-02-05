@@ -1,18 +1,20 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyScript : MonoBehaviour
 {
-    public EnemyMoves emScript;
+    public int yeet;
+    public EnemyMoves YeetLol;
+
 
     string name;
     int type;
     int health;
     int block;
     int cooldown;
-    private static System.Random rand = new Random();
+    private static System.Random rand = new System.Random();
+
 
     //public void TakeDamage(Card c) { health -= c.efPower; }
 
@@ -20,7 +22,6 @@ public class Enemy : MonoBehaviour
     {
         int i = rand.Next(/* NUMBER OF ATTACKS*/);
     }
-    private static System.Random rand = new Random();
     /*
     public void TakeDamage(Card c)
     {
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour
     }
     */
 
-    
+
 
     public void ChooseMove()
     {
@@ -46,12 +47,13 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        YeetLol.YEET();
+        Debug.Log(YeetLol.heal.name);
     }
 
     // Update is called once per frame
     void Update()
     {
-        emScript.YEET();
+
     }
 }
