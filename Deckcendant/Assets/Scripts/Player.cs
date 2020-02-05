@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
         else block -= damage;
     }
 
-    public void PlayCard(Card c) { energy -= c.cost; }
+    public void PlayCard(Crd c) { energy -= c.cost; }
 
     // Start is called before the first frame update
     void Start()

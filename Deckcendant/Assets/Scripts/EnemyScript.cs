@@ -18,7 +18,7 @@ public class EnemyScript : MonoBehaviour
 
     private static System.Random rand = new System.Random();
 
-    public void TakeDamage(Card c)
+    public void TakeDamage(Crd c)
     {
         if (block - c.efPower <= 0) currentHealth -= block + c.efPower;
         else block -= c.efPower;
