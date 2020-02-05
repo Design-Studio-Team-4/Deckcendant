@@ -52,12 +52,6 @@ public class Crd : MonoBehaviour
 
     }
 
-    public void TriggerAttack(EnemyScript.Enemy target)
-    {
-        target.TakeDamage(this);
-        Player.instance.PlayCard(this);
-    }
-
     public void TriggerEffect()
     {
         switch (type)
@@ -72,6 +66,12 @@ public class Crd : MonoBehaviour
         Player.instance.PlayCard(this);
     }
 
+    public void TriggerEffect(EnemyScript.Enemy target)
+    {
+        target.TakeDamage(this);
+        Player.instance.PlayCard(this);
+    }
+    
     public void OnMouseDown()
     {  // int numcrds;
         //Removes focus from whatever card was focused on before
