@@ -61,7 +61,7 @@ public class Deck : MonoBehaviour
             {
                 List<GameObject> temp = GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().Cards;
                 AddTo(temp);
-                GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().RemoveFrom(temp);
+                GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().RemoveFrom(GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().Cards);
                 Shuffle();
             }
         }
@@ -116,7 +116,7 @@ public class Deck : MonoBehaviour
         }
         
     }
-
+    
     public void MakeCards()
     {
         foreach (GameObject c in temp)

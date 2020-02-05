@@ -31,13 +31,14 @@ public class Hand : MonoBehaviour
         
 
 
-        DisplayHand(HandPile.Count);
+       // DisplayHand(HandPile.Count);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             drawCard();
@@ -45,7 +46,7 @@ public class Hand : MonoBehaviour
         }
     }
     public void drawCard()
-    {
+    {   
         cardToDraw = DrawPile.GetComponent<Deck>().getTopCard();
         Addto(cardToDraw);
         List<GameObject> temp = new List<GameObject> { cardToDraw };
@@ -87,7 +88,7 @@ public class Hand : MonoBehaviour
             HandPile.Remove(cardToRemove);
 
     }
-    public void DisplayHand(int numCrds)
+   /* public void DisplayHand(int numCrds)
     {
         float card_xseperation = 0.2f;
         float x = gameObject.transform.position.x;
@@ -129,6 +130,7 @@ public class Hand : MonoBehaviour
             }
         }
     }
+    */
     public void useCard(GameObject cardToUse)
     {
         List<GameObject> temp = new List<GameObject> { cardToUse };
