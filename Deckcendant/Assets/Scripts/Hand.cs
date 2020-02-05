@@ -135,7 +135,7 @@ public class Hand : MonoBehaviour
         if (focus != -1)
         {   
             Debug.Log("Removing focus from" + focus);
-            HandPile[focus].GetComponent<Crd>().RemoveFocus();
+            HandPile[focus].GetComponent<Card>().RemoveFocus();
         }
         
         return focus;

@@ -4,12 +4,27 @@ using UnityEngine;
 
 public class EnemyMoves : MonoBehaviour
 {
+    public static EnemyMoves instance;
+
+    void Start()
+    {
+        instance = this;
+    }
+
     public class Move
     {
         public string name;
         public int type;
         public int power;
         public int cost;
+
+        public Move()
+        {
+            name = "yeet";
+            type = 0;
+            power = 1;
+            cost = 1;
+        }
 
         public Move(string n, int t, int p, int c)
         {
@@ -20,7 +35,14 @@ public class EnemyMoves : MonoBehaviour
         }
 
     }
-    
+
+    public Move[] moveList = new Move[] {
+        new Move("Punch", 3, 0, 3),
+        new Move("Block", 1, 1, 1),
+        new Move("Heal", 2, 2, 2)
+    };
+
+    /*
     public Move punch = new Move("Punch", 3, 0, 3);
     public Move defend = new Move("Block", 1, 1, 1);
     public Move heal = new Move("Heal", 2, 2, 2);
@@ -29,7 +51,7 @@ public class EnemyMoves : MonoBehaviour
     public Move dab = new Move("Dab", 10, 2, 1);
     public Move naynay = new Move("Nay Nay", 20, 1, 10);
     public Move eggcite = new Move("Eggcite", 10000, 2, 6);
-
+    */
 
     public void YEET()
     {

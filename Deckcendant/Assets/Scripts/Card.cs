@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crd : MonoBehaviour
+public class Card : MonoBehaviour
 {
     public string cardName = "A Card";
     // * variable for the art here *
