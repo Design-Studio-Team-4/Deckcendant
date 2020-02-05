@@ -10,6 +10,7 @@ public class Card : MonoBehaviour
     public int efPower = 5;
     public int cost = 1;
     public GameObject CrdText;
+
     public enum CardState
     {
         isFocus,
