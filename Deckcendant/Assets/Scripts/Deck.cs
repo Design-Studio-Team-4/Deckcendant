@@ -25,9 +25,10 @@ TODO MUCH LATER:
 
 public class Deck : MonoBehaviour
 {
-
+    public List<GameObject> temp;
     public List<GameObject> Cards;
     public bool defaultDeck;
+ 
     public Hand hand;
     private int currentCrd;
     private const int MAX_NUM_CRDS = 50;
@@ -37,7 +38,7 @@ public class Deck : MonoBehaviour
     void Start()
     {
 
-		
+        MakeCards();
 	}
 
     // Update is called once per frame
@@ -82,7 +83,21 @@ public class Deck : MonoBehaviour
             */
         }
     }
+    public GameObject getTopCard()
+    {
+       
+        return Cards[Cards.Count-1];
+    }
 
+    public void MakeCards()
+    {
+        foreach (GameObject c in temp)
+        {
+           GameObject card = Instantiate(c);
+            card.SetActive(false);
+            Cards.Add(card);
+        }
+    }
     // public List<GameObject> TakeFrom(int numCrds)
     //  {
     // List<GameObject> crdsToTake = DrwPile.;
