@@ -6,8 +6,8 @@ public class Crd : MonoBehaviour
 {
     public string cardName = "A Card";
     // * variable for the art here *
-    public int efType = 0;
-    public int efPower = 5;
+    public int type = 0;
+    public int power = 5;
     public int cost = 1;
     public GameObject CrdText;
     Vector3 startpos;
@@ -42,19 +42,40 @@ public class Crd : MonoBehaviour
     }
     public string description()
     {
-        switch (efType)
+        switch (type)
         {
             case 0:
-                return "Deal " + efPower + " Damage";
+                return "Deal " + power + " Damage";
             case 1:
-                return "Gain " + efPower + " Block";
+                return "Gain " + power + " Block";
             case 2:
-                return "Restore " + efPower + " HP";
+                return "Restore " + power + " HP";
 
         }
-        return "Deal " + efPower + " Damage";
+        return "Deal " + power + " Damage";
 
     }
+
+    public void TriggerAttack(EnemyScript.Enemy target)
+    {
+        target.TakeDamage(this);
+        Player.instance.PlayCard(this);
+    }
+
+    public void TriggerEffect()
+    {
+        switch (type)
+        {
+            case 1: // gain block
+                Player.instance.GainBlock(power);
+                break;
+            case 2: // heal
+                Player.instance.Heal(power);
+                break;
+        }
+        Player.instance.PlayCard(this);
+    }
+
     public void OnMouseDown()
     {  // int numcrds;
         //Removes focus from whatever card was focused on before
