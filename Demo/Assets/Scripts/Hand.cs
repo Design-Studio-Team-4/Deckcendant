@@ -39,12 +39,13 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       /* was used for testing
         if (Input.GetKeyDown(KeyCode.Space))
         {
             drawCard();
             
         }
+        */
     }
     public void Refill()
     {
@@ -103,7 +104,8 @@ public class Hand : MonoBehaviour
     }
  
     public void useCard(GameObject cardToUse)
-    {   Battlemanager.GetComponent<BattleManager>().PlayerMove(cardToUse.GetComponent<Crd>().type);
+    {   //Battlemanager.GetComponent<BattleManager>().PlayerMove(cardToUse.GetComponent<Crd>().type); cant cause i made type private
+
         List<GameObject> temp = new List<GameObject> { cardToUse };
         DiscardPile.GetComponent<Deck>().AddTo(temp);
         getFocus();

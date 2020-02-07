@@ -63,9 +63,10 @@ public class Deck : MonoBehaviour
         {
             if (Cards.Count==0)
             {
-                List<GameObject> temppile = GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().Cards;
-                AddTo(temppile);
-                GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().RemoveFrom(/*GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().Cards*/temppile);
+                List<GameObject> cardsToDraw = GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().Cards;
+                AddTo(cardsToDraw);
+                Debug.Log("CardsToDraw On Refill count = " + cardsToDraw.Count);
+                GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().RemoveFrom(cardsToDraw) ;
                 Shuffle();
             }
         }
@@ -98,12 +99,10 @@ public class Deck : MonoBehaviour
             Cards.Remove(c);
 
             /* IGNORE THIS 
-            int index = IndexOf(c);
-            for (int i = index; i < cards.Count() - 1; i++)
+             for(int i = cards.Count; i>=0;i--)
             {
-                cards[i] = cards[i + 1];
+            Cards.Remove(cards[Cards.Count-1]);
             }
-            cards[cards.Count()] = null;
             */
         }
     }

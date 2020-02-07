@@ -6,7 +6,8 @@ public class Crd : MonoBehaviour
 {
     public string cardName = "A Card";
     // * variable for the art here *
-    public int type = 1;
+   
+    private int type = 1;
     public int power = 5;
     public int cost = 1;
     public GameObject CrdText;
@@ -94,6 +95,7 @@ public class Crd : MonoBehaviour
         else if (state == CardState.isFocus)
         {
             GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>().PlayerMove(type);
+            gameObject.transform.position = startpos;
             GameObject.FindGameObjectWithTag("PlayerHand").GetComponent<Hand>().useCard(gameObject);
             
         }
