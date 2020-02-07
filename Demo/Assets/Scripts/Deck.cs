@@ -65,7 +65,7 @@ public class Deck : MonoBehaviour
             {
                 List<GameObject> cardsToDraw = GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().Cards;
                 AddTo(cardsToDraw);
-                Debug.Log("CardsToDraw On Refill count = " + cardsToDraw.Count);
+                //Debug.Log("CardsToDraw On Refill count = " + cardsToDraw.Count);
                 GameObject.FindGameObjectWithTag("DiscardPile").GetComponent<Deck>().RemoveFrom(cardsToDraw) ;
                 Shuffle();
             }
